@@ -4,8 +4,8 @@
 
 void maxHeapify(int A[], int i, int n){
 	int largest;
-	int l = 2*i;
-	int r = 2*i + 1;
+	int l = 2*i+1;
+	int r = 2*i+2;
 	if(l <= n && A[l] > A[i]){
 		largest = l;
 	}
@@ -24,7 +24,7 @@ void maxHeapify(int A[], int i, int n){
 }
 
 void buildMaxHeap(int A[], int n){
-	for(int i = n/2;i>=0;i--){
+	for(int i = (n-1)/2;i>=0;i--){
 		maxHeapify(A,i,n);
 	}
 }
@@ -32,6 +32,19 @@ void printHeap(int A[], int n){
 	
 }
 void heapSort(int A[], int n){
+	//create a Heap
+	buildMaxHeap(A,n);
+	for(int i = n-1;i>0;i--){
+		//swap first and last element
+		int temp = A[0];
+		A[0] = A[n-1];
+		A[n-1] = temp;
+		n--;
+		//create Heap again
+		maxHeapify(A,0,n);
+		
+		
+	}
 	
 }
 void printArray(int A[], int n){
