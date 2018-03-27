@@ -30,11 +30,8 @@ void buildMaxHeap(int A[], int n){
 	//printHeap(A,n);
 }
 void printHeap(int A[], int n){
-	printf("sorted Array: [");
-	for(int i = 0;i<n;i++){
-		printf("%d, ",A[i]);
-	}
-	printf("]");
+	//To Do
+	
 }
 void heapSort(int A[], int n){
 	//create a Heap
@@ -61,6 +58,6 @@ void printArray(int A[], int n){
 int main(){
 	int A[]={3,8,9,1,7};
 	heapSort(A,5);
-	printArray(A,5);
+	printArray(A,5); //gibt immer den heap zurück, nicht ein sortiertes array!
 	return 0;
 }
