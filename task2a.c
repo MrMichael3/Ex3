@@ -25,6 +25,10 @@ void printArray(int A[], int size){
 
 
 int main(){
+	int A[]= {4,3,2,5,6,7,8,9,12,1};
+	int n = 10;
+	quicksort(A,0,n-1);
+	printArray(A,n);
 	
 	return 0;
 }
