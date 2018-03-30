@@ -30,7 +30,11 @@ void buildMaxHeap(int A[], int n){
 	//printHeap(A,n);
 }
 void printHeap(int A[], int n){
-	//To Do
+	printf("graph g {\n");
+	for(int i = 0;i<n/2;i++){	
+		printf("%d -- %d\n%d -- %d\n",A[i],A[i*2+1],A[i],A[i*2+2]);
+	}
+	printf("}");
 	
 }
 void heapSort(int A[], int n){
@@ -48,6 +52,7 @@ void heapSort(int A[], int n){
 	
 }
 void printArray(int A[], int n){
+	//not working
 	printf("[");
 	for(int i = 0;i<n-1;++i){
 		printf("%d, ",A[i]);
