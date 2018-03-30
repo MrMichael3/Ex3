@@ -1,6 +1,7 @@
 //Michael Küchler, 16-924-318
 
 #include <stdio.h>
+//beim unvollständigen heap : out of array!
 
 void maxHeapify(int A[], int i, int n){
 	int largest;
@@ -34,7 +35,7 @@ void printHeap(int A[], int n){
 	for(int i = 0;i<n/2;i++){	
 		printf("%d -- %d\n%d -- %d\n",A[i],A[i*2+1],A[i],A[i*2+2]);
 	}
-	printf("}");
+	printf("}\n");
 	
 }
 void heapSort(int A[], int n){
@@ -63,6 +64,7 @@ void printArray(int A[], int n){
 int main(){
 	int A[]={3,8,9,1,7};
 	heapSort(A,5);
+	printHeap(A,5);
 	printArray(A,5); //gibt immer den heap zurück, nicht ein sortiertes array!
 	return 0;
 }
