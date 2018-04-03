@@ -9,14 +9,27 @@ void swap(int A[], int i, int j){
 	A[j] = temp;
 }
 int partitionHoare(int A[], int low, int high){
-	return 0;
+	int pivot = A[high];
+	int i = high-1;
+	for(int j = low;j<high;j++){
+		if(A[j]<=pivot){
+			i++;
+			swap(A,i,j);
+		}
+	}
+	swap(A,i+1,high);
+	return (i+1);
 }
 void quicksort(int A[], int low, int high){
-
+	if(low<high){
+		int q = partitionHoare(A, low, high);
+		quicksort(A,low,q-1);
+		quicksort(A,q+1,high);
+	}
 }
 void printArray(int A[], int size){
 	printf("sorted Array: [");
-	for(int i = 0;i<n-1;i++){
+	for(int i = 0;i<size-1;i++){
 		printf("A[i], ");
 	}
 	printf("A[n-1]]");
