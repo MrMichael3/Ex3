@@ -2,6 +2,12 @@
 
 #include <stdio.h>
 #include <time.h>
+#include <stdio.h>
+#include "bubblesort.c"
+#include "quicksort.c"
+#include "quicksortM.c"
+#include "heapsort.c"
+
 
 void readFile(char filename[], int output[], int *n){
 	FILE *f;
@@ -16,6 +22,8 @@ void readFile(char filename[], int output[], int *n){
 }
 
 int main(){
+	int A[3000];
+	//readFile("orderd.txt",A,3000);
 	clock_t start;
 	clock_t end;
 	float seconds;

@@ -6,3 +6,7 @@ task4.exe
 inverse.txt
 ordered.txt
 random.txt
+bubblesort.c
+heapsort.c
+quicksort.c
+quicksortM.c
