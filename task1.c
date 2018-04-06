@@ -1,7 +1,7 @@
 //Michael Küchler, 16-924-318
 
 #include <stdio.h>
-//beim unvollständigen heap : out of array!
+//beim unvollständigen heap : fehler
 
 void maxHeapify(int A[], int i, int n){
 	int largest;
@@ -48,12 +48,11 @@ void heapSort(int A[], int n){
 		A[0] = A[i];
 		A[i] = temp;
 		//create Heap again	
-		maxHeapify(A,0,i);
+		maxHeapify(A,0,i-1);
 	}
 	
 }
 void printArray(int A[], int n){
-	//not working
 	printf("[");
 	for(int i = 0;i<n-1;++i){
 		printf("%d, ",A[i]);
@@ -65,6 +64,6 @@ int main(){
 	int A[]={3,8,9,1,7};
 	heapSort(A,5);
 	printHeap(A,5);
-	printArray(A,5); //gibt immer den heap zurück, nicht ein sortiertes array!
+	printArray(A,5);
 	return 0;
 }
