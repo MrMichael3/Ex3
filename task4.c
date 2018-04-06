@@ -79,77 +79,61 @@ void print(struct list *listA){
     struct node *p = listA->head;
 
     if(p == NULL){
-	printf("[ ]\n");
-    }else{
-	printf("[ ");
-
-
-	while(p->next != NULL){
-	    printf("%d ", p->val);
-	    p = p->next;
-	}	
-	printf("%d ]\n", p->val);
+		printf("[ ]\n");
+    }
+	else{
+		printf("[ ");
+		while(p->next != NULL){
+	    	printf("%d ", p->val);
+	   		p = p->next;
+		}	
+		printf("%d ]\n", p->val);
     }
 }
 
 
 void delete(struct list *listA, int i){
 
-    // remove first element
     if(i == 0){
-	struct node *p = listA->head->next;
-	free(listA->head);
-	listA->head = p;
+		struct node *p = listA->head->next;
+		free(listA->head);
+		listA->head = p;
     }
     else{
-
-	struct node *p = listA->head;
-	int j=0;
-
-	while(j < i-1){
-	    p = p->next;
-	    j++;
-	}
-
-	// remove from the middle
-	if(p->next->next != NULL){
-	    struct node *q = p->next;
-	    p->next = p->next->next;
-	    free(q);
-	}
-
-	// remove the last element
-	else if(p->next->next == NULL){
-	    free(p->next);
-	    p->next = NULL;
-	}
-    
+		struct node *p = listA->head;
+		int j=0;
+		while(j < i-1){
+	    	p = p->next;
+	    	j++;
+		}
+		if(p->next->next != NULL){
+	    	struct node *q = p->next;
+	    	p->next = p->next->next;
+	    	free(q);
+		}
+		else if(p->next->next == NULL){
+	    	free(p->next);
+	    	p->next = NULL;
+		}
     }
-
 }
 
 
 void deleteLast(struct list *listA){
 
-    // only if list is not empty
     if(listA->head != NULL){
-    
-	struct node *p = listA->head;
-    
-	// only one element in the list
-	if(p->next == NULL){
-	    free(p);
-	    listA->head == NULL; // THE DEBUGGER SAYS THAT THE HEAD DOES NOT GET NULL!!! WHY?!?	    
-	}
-	else{ // more than one element in the list
-    
-	    while(p->next->next != NULL){
-		p = p->next;
-	    }
-	    free(p->next);
-	    p->next = NULL;
-
-	}
+		struct node *p = listA->head;
+		if(p->next == NULL){
+	    	free(p);
+	    	listA->head == NULL;   
+		}
+		else{
+	    	while(p->next->next != NULL){
+				p = p->next;
+	    	}
+	    	free(p->next);
+	    	p->next = NULL;
+		}
     }
 }
     
@@ -159,38 +143,30 @@ void max(struct list *listA){
     int max = 0;
     int i = 0;
     int tmp;
-
     if(listA->head == NULL){
-	printf("List is empty\n");
-	return;
+		printf("List is empty\n");
+		return;
     }
-
-    
     if(listA->head->next != NULL){
-	struct node *p = listA->head;
-	tmp = p->val;
-
-	while(p->next != NULL){
-	    i++;
-	    if(tmp < p->next->val){
-		max = i;
-		tmp = p->next->val;
-	    }
-	    p = p->next;
-	}
+		struct node *p = listA->head;
+		tmp = p->val;
+		while(p->next != NULL){
+	    	i++;
+	    	if(tmp < p->next->val){
+				max = i;
+				tmp = p->next->val;
+	    	}
+	    	p = p->next;
+		}
     }
-
     printf("max = %d  with index %d\n", tmp, max);
-    
 }
-
-
 
 
 int main(){
 
     struct list *list = init();
-    
+    //1.
     append(list,9);
     append(list,4);
     append(list,5);
@@ -198,18 +174,29 @@ int main(){
     append(list,1);
     append(list,2);
     append(list,0);
+    //2.
     print(list);
+    //3.
     reverse(list);
+    //4.
     print(list);
+    //5.
     delete(list,6);
     delete(list,3);
     delete(list,0);
+    //6.
     print(list);
+    //7.
     deleteLast(list);
+    //8.
     print(list);
+    //9.
     max(list);
+    //10.
     clear(list);
+    //11.
     print(list);
+    
     free(list);
     
     return 0;
