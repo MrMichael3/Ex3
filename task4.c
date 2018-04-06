@@ -159,7 +159,7 @@ void max(struct list *listA){
 	    	p = p->next;
 		}
     }
-    printf("max = %d  with index %d\n", tmp, max);
+    printf("max = %d\n", max);
 }
 
 
